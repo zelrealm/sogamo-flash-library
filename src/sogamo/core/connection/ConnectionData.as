@@ -138,9 +138,6 @@ package sogamo.core.connection {
                         !_localStorage.hasEventListener(NetStatusEvent.NET_STATUS) ? _localStorage.addEventListener(NetStatusEvent.NET_STATUS, onFlushStatus) : null;
                         break;
                     case SharedObjectFlushStatus.FLUSHED:
-						trace("********************************");
-						trace("size " + _localStorage.size);
-						trace("records : " + _dataStorage.length);
                         break;
                 }
             }
@@ -149,7 +146,6 @@ package sogamo.core.connection {
 		private function onFlushStatus(event:NetStatusEvent):void {
             switch (event.info.code) {
                 case "SharedObject.Flush.Success":
-                    trace("User granted permission -- value saved.");
                     break;
                 case "SharedObject.Flush.Failed":
 					_system.dispatchEvent(new sogamoEvent(sogamoEvent.ERROR_DATA_STORAGE, "User denied permission to increase local storage size"));
@@ -165,7 +161,6 @@ package sogamo.core.connection {
         }
 		
         private function completeCheckStorageTimer(e:TimerEvent):void {//Sents data to <strong>SOGAMO's system</strong> on time intervals.
-			trace("timer set on configurator " + _system.configurator.TimerTime)
 			_available = true;
 			checkStorage();
         }
@@ -184,7 +179,6 @@ package sogamo.core.connection {
 			if ($priority) {
 				for (i = 0; i < _dataStorage.length; i++) {
 					if (_dataStorage[i][0] != "old_data") {//we leave the old data always to the start on the queue
-						trace("inserted priority")
 						_dataStorage.splice(i, 0, new Array($type, $data, ConnectionData.DATA_WAITING) );
 						break;
 					}
