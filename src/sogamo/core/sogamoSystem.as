@@ -62,6 +62,9 @@ package sogamo.core {
 		private var _base_url:String = "";
 		private var _base_protocol:String = "http://";
 		
+		private var _ss_url:String = "";
+		private var _ss_protocol:String = "http://";
+		
 		private var _trackPlayerParams:Object = new Object();
 		
 		private var _sessionStorage:Object = new Object();
@@ -89,7 +92,6 @@ package sogamo.core {
 			_connectionData = new ConnectionData(this);
 			
 			_connectionSuggestion = new ConnectionSuggestion(this);
-			_connectionSuggestion.url = "http://sogamo-x10.herokuapp.com/";
 		}
 		/**
          * Connects to system to get session ID, this class is for internal use.
@@ -115,7 +117,7 @@ package sogamo.core {
 			_api_key = $apiKey;
 			_player_id = $player_id;
 			if (hasSession() != false) {
-				cont(getSessionInfo("api_key"), getSessionInfo("player_id"), getSessionInfo("game_id"), getSessionInfo("session_id"), getSessionInfo("lc_url"));
+				cont(getSessionInfo("api_key"), getSessionInfo("player_id"), getSessionInfo("game_id"), getSessionInfo("session_id"), getSessionInfo("lc_url"), getSessionInfo("ss_url"));
 			}else {
 				_connectionSession.connect(_api_key, _player_id);
 			}
@@ -146,16 +148,20 @@ package sogamo.core {
 			_sess_id = $data['session_id'];
 			_s_app_id = $data['game_id'];
 			_base_url = $data['lc_url'];
+			_ss_url = $data['su_url'];
 			
 			setSessionInfo("session_id", $data['session_id']);
 			setSessionInfo("api_key", _api_key);
 			setSessionInfo("game_id", $data['game_id']);
 			setSessionInfo("player_id", _player_id);
 			setSessionInfo("lc_url", $data['lc_url']);
+			setSessionInfo("ss_url", $data['su_url']);
 							
-			cont(_api_key, _player_id, $data['game_id'], getSessionInfo("session_id"), $data['lc_url']);
+			cont(_api_key, _player_id, $data['game_id'], getSessionInfo("session_id"), $data['lc_url'], $data['su_url']);
 			
 			_connectionData.url = _base_protocol + _base_url + "batch";//Used by JSON
+			
+			_connectionSuggestion.url = _ss_protocol + _ss_url;
 			
 			_trackPlayerParams["session_id"] = _sess_id;//can be placed on ConnectionData
 			_connectionData.send("session.login_datetime", _trackPlayerParams, true);
@@ -176,13 +182,14 @@ package sogamo.core {
 		}
 		
 		
-		private function cont(apiKey:String, fb_player_id:String, game_id:String, session_id:String, lc_url:String):void {   
+		private function cont(apiKey:String, fb_player_id:String, game_id:String, session_id:String, lc_url:String, ss_url:String):void {   
            	_api_key = apiKey; 				
 			_player_id = fb_player_id;		
          
 			_s_app_id = game_id;
 			_sess_id = session_id;
 			_base_url = lc_url;
+			_ss_url = ss_url;
 		}
 		private function hasSession():Boolean {
 			return getSessionInfo("session_id") != null;
