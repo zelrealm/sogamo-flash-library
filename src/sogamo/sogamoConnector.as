@@ -537,7 +537,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackPlayerAction($type:String, $successful:Boolean, $description:String="", $requirements:String="", $rewards:String="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackPlayerAction($type:String, $description:String="", $requirements:String="", $rewards:String="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
 			var params:Object = new Object();
 				
 			var log_action:String = "";
