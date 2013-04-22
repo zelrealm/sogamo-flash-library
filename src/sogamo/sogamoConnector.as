@@ -72,7 +72,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackInviteSent($invite_id:int, $recipient_ids:String, $invite_type:String = "", $screen_name:String = "", $attributes:String = "", $credit:int = 0, $level:int = 0, $experience:int = 0, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackInviteSent($invite_id:int, $recipient_ids:String, $invite_type:String = "", $screen_name:String = "", $attributes:String = "", $credit:int = 0, $level:int = 0, $experience:int = 0, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["inviteId"] = $invite_id;
 			params["recipientIds"] = $recipient_ids;
@@ -102,7 +102,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackInviteResponse($invite_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackInviteResponse($invite_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["inviteId"] = $invite_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -128,7 +128,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackNotifiSent($notification_id:int, $recipient_ids:String, $notification_subject:String = "", $notification_text:String = "", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackNotifiSent($notification_id:int, $recipient_ids:String, $notification_subject:String = "", $notification_text:String = "", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			
 			params["playerId"] = this.playerID;//Filled automatically
@@ -155,7 +155,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackNotifiResponse($notification_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackNotifiResponse($notification_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["notifiId"] = $notification_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -180,7 +180,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackGiftRqstSent($gift_id:int, $recipient_ids:String, $gift_items:String ="", $screen_name:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackGiftRqstSent($gift_id:int, $recipient_ids:String, $gift_items:String ="", $screen_name:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -206,7 +206,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackGiftRqstResponse($gift_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackGiftRqstResponse($gift_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["giftRequestId"] = $gift_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -231,7 +231,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackFeedStory($story_id:int, $recipient_ids:String, $story_mesg:String ="", $story_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackFeedStory($story_id:int, $recipient_ids:String, $story_mesg:String ="", $story_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -258,7 +258,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackFeedStoryResponse($story_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackFeedStoryResponse($story_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["storyId"] = $story_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -283,7 +283,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackMultiFeedStory($story_id:int, $recipient_ids:String, $story_mesg:String ="", $story_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackMultiFeedStory($story_id:int, $recipient_ids:String, $story_mesg:String ="", $story_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -310,7 +310,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackMultiFeedResponse($story_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackMultiFeedResponse($story_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["storyId"] = $story_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -334,7 +334,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackPUA($post_id:int, $post_mesg:String, $post_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackPUA($post_id:int, $post_mesg:String, $post_type:String ="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -360,7 +360,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackPUAResponse($post_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean):void {
+		public function trackPUAResponse($post_id:int, $responded_player_id:String, $responded_player_status:int, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["postId"] = $post_id;
 			params["respondedPlayerId"] = $responded_player_id;
@@ -382,7 +382,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackLevelUps($level:int, $items_unlocked:String, $attributes:String = "", $credit:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackLevelUps($level:int, $items_unlocked:String, $attributes:String = "", $credit:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -418,7 +418,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */
-		public function trackItemChange($items_remaining:String, $items_remaining_quantity:String = "", $items_bought:String = "", $items_bought_quantity:String = "", $items_bought_price:String = "", $log_action:String = "", $attributes:String = "", $items_in_use:String = "", $items_in_inventory:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackItemChange($items_remaining:String, $items_remaining_quantity:String = "", $items_bought:String = "", $items_bought_quantity:String = "", $items_bought_price:String = "", $log_action:String = "", $attributes:String = "", $items_in_use:String = "", $items_in_inventory:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
@@ -452,7 +452,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackMiscExpenditures($currency_spent:String, $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $successful:Boolean):void {
+		public function trackMiscExpenditures($currency_spent:String, $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
@@ -474,7 +474,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackPlayerTopUp($currency_earned:String, $currency_balance:String, $Remarks:String ="", $successful:Boolean):void {
+		public function trackPlayerTopUp($currency_earned:String, $currency_balance:String, $Remarks:String ="", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["gameId"] = this.gameID;//Filled automatically
@@ -502,7 +502,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackCreditSpent($credit_spent:int, $resource_bought:String, $exchange_rate:Number, $real_currency:String, $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackCreditSpent($credit_spent:int, $resource_bought:String, $exchange_rate:Number, $real_currency:String, $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["gameId"] = this.gameID;//Filled automatically
@@ -537,7 +537,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackPlayerAction($type:String, $description:String="", $requirements:String="", $rewards:String="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackPlayerAction($type:String, $description:String="", $requirements:String="", $rewards:String="", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 				
 			var log_action:String = "";
@@ -572,7 +572,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackGameOutcome($outcome:String = "", $rewards:String = "", $cards_used:String = "", $successful:Boolean):void {
+		public function trackGameOutcome($outcome:String = "", $rewards:String = "", $cards_used:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["logDatetime"] = sogamoSystem.convertToUnix(new Date());
@@ -598,7 +598,7 @@ package sogamo{
          * @param    $successful               Is the event successful? Example: true or false
 		 * @return   none
          */	
-		public function trackUserClicks($xPos:Number, $yPos:Number, $screen_name:String = "", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean):void {
+		public function trackUserClicks($xPos:Number, $yPos:Number, $screen_name:String = "", $attributes:String = "", $credit:int = NaN, $level:int = NaN, $experience:int = NaN, $virtualCurrency:String = "", $successful:Boolean = true):void {
 			var params:Object = new Object();
 			params["playerId"] = this.playerID;//Filled automatically
 			params["attributes"] = $attributes;
