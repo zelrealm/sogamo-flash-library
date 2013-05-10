@@ -100,6 +100,7 @@ package sogamo.core.connection {
 						_localStorage.data.record = new String();
 					}else {
 						_dataStorage = uncompress(_localStorage.data.record);
+						if(_dataStorage == null) _dataStorage = new Array();
 					}
 					_availableLocalDataStorage = true;
 				} catch (error:Error) {
@@ -182,6 +183,9 @@ package sogamo.core.connection {
 						_dataStorage.splice(i, 0, new Array($type, $data, ConnectionData.DATA_WAITING) );
 						break;
 					}
+				}
+				if(_dataStorage.length == 0) {
+					_dataStorage.push(new Array($type, $data, ConnectionData.DATA_WAITING) );
 				}
 			}else {
 				_dataStorage.push(new Array($type, $data, ConnectionData.DATA_WAITING) );
