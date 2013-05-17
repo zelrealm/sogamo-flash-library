@@ -63,7 +63,7 @@ package sogamo{
 		}
 		
 		/** 
-		 * The default storage local size in KB, no lower than 10KB and no bigger than 100KB, flash will request a bigger size if requiered, if this value is biger than the current amount of data available on the user's computer a popup will be shown to the user to allow more data space.
+		 * The default storage local size in KB, no lower than 10KB and no bigger than 100KB, flash will request a bigger size if requiered, if this value is bigger than the current amount of data available on the user's computer a popup will be shown to the user to allow more data space.
 		 */
 		public function set LocalStorageSize($var:uint):void {
 			$var < 10 ? _localStorageSize = 10 : _localStorageSize = $var;
